@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .up{
+    background-image: url(https://th.bing.com/th/id/OIP.P8hszKVFuyJAGQCj_MkbUQHaEF?rs=1&pid=ImgDetMain);
+    width: 600px; height:150px ;
+}
+#t{ color:white;
+    background-color: blue;
+}
+.down{
+    background-color: aliceblue;
+}
+input{
+    width: 98%;
+}
+button{
+    width: 100%;
+
+}
+#strength { 
+            font-weight: bold;
+        }
+        .strength-weak {
+            color: red;
+        }
+        .strength-medium {
+            color: orange;
+        }
+        .strength-strong {
+            color: green;
+        }
+            </style>
+    </head>
+    <body style="background-color:pink">
+        <div class="up">
+            <center>
+                <br>
+            <h1>password strength checker</h1>
+            </center>
+        </div>
+        <div class="down">
+            <center>
+        <h2>enter password</h2>
+        <p>enter your password:</p>
+        <input type="password" id="password">
+        <br>
+        <button id="t" onclick="nivan()">check strength</button>
+        <div id="strength"></div>
+        </center>
+        </div>
+        <script>
+            function nivan() {
+            const pass = document.getElementById('password').value;
+            const strengthIndicator = document.getElementById('strength');
+            let str = 'Weak';
+            let strengthClass = 'strength-weak';
+            if (pass.length > 8 && /[A-Z]/.test(pass) && /[a-z]/.test(pass) && /[0-9]/.test(pass) && /[!@#$%^&*]/.test(pass)) {
+                str = 'Strong';
+                strengthClass = 'strength-strong';
+            } else if (pass.length > 6 && /[A-Z]/.test(pass) && /[a-z]/.test(pass) && /[0-9]/.test(pass)) {
+                str = 'Medium';
+                strengthClass = 'strength-medium';
+            }
+            strengthIndicator.textContent = `Strength: ${str}`;
+            strengthIndicator.className = strengthClass;
+        }
+            </script>
+    </body>
+</html>
